@@ -1,4 +1,4 @@
-/* Estilo general del cuerpo */
+/* Estilo general */
 body {
   font-family: 'Times New Roman', serif;
   background: #f8f9f9;
@@ -13,123 +13,12 @@ body {
   padding: 1rem;
 }
 
-/* Título principal */
+/* Título principal en cursiva con fuente Georgia */
 h1 {
   text-align: center;
   font-size: 2.4rem;
   font-family: 'Georgia', serif;
-  color: #154360;
-  margin-bottom: 2rem;
-}
-
-/* Contenedor de semestres en scroll horizontal */
-#pensum {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 1.5rem;
-  padding-bottom: 1rem;
-}
-
-/* Cada bloque de semestre */
-.semestre {
-  min-width: 250px;
-  flex-shrink: 0;
-  padding: 1rem;
-  border-radius: 10px;
-  background: #d6eaf8;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: background 0.5s;
-}
-
-/* Escala de azules por orden */
-.semestre:nth-child(2)  { background: #aed6f1; }
-.semestre:nth-child(3)  { background: #85c1e9; }
-.semestre:nth-child(4)  { background: #7fb3d5; }
-.semestre:nth-child(5)  { background: #5499c7; }
-.semestre:nth-child(6)  { background: #2980b9; }
-.semestre:nth-child(7)  { background: #2471a3; }
-.semestre:nth-child(8)  { background: #1f618d; }
-.semestre:nth-child(9)  { background: #1a5276; }
-
-/* Título de cada semestre */
-.semestre h3 {
-  font-size: 1.3rem;
   font-style: italic;
-  font-family: 'Georgia', serif;
-  color: #0e2f44;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-/* Materias generales */
-.materia {
-  font-family: 'Times New Roman', serif;
-  font-size: 0.95rem;
-  background: #ffffff;
-  border-radius: 6px;
-  padding: 0.6rem 0.8rem;
-  margin: 0.4rem 0;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  font-weight: 500;
-}
-
-/* Materia aprobada */
-.materia.tachada {
-  background-color: #1b4f72;
-  color: white;
-  text-decoration: line-through;
-}
-
-/* Materia bloqueada */
-.materia.bloqueada {
-  background-color: #ebf5fb;
-  color: #7f8c8d;
-  cursor: not-allowed;
-}
-
-/* Hover para materias desbloqueadas */
-.materia:not(.bloqueada):hover {
-  background-color: #aed6f1;
-  transform: scale(1.03);
-}
-
-/* Botón de reinicio */
-.reset-btn {
-  background-color: #154360;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  font-family: 'Georgia', serif;
-  font-size: 1rem;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  display: block;
-  margin-left: auto;
-}
-
-/* Estilo general del cuerpo */
-body {
-  font-family: 'Times New Roman', serif;
-  background: #f8f9f9;
-  margin: 0;
-  padding: 2rem;
-}
-
-/* Contenedor general */
-.container {
-  max-width: 100%;
-  margin: auto;
-  padding: 1rem;
-}
-
-/* Título principal */
-h1 {
-  text-align: center;
-  font-size: 2.4rem;
-  font-family: 'Georgia', serif;
   color: #154360;
   margin-bottom: 0.5rem;
 }
@@ -143,14 +32,14 @@ h2 {
   margin-bottom: 2rem;
 }
 
-/* Contenedor doble fila de semestres */
+/* Contenedor de filas de semestres */
 #contenedor-filas {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-/* Cada fila horizontal */
+/* Fila horizontal de semestres */
 .fila {
   display: flex;
   flex-wrap: nowrap;
@@ -159,18 +48,17 @@ h2 {
   padding-bottom: 1rem;
 }
 
-/* Cada bloque de semestre */
+/* Estilo base para cada semestre */
 .semestre {
   min-width: 250px;
   flex-shrink: 0;
   padding: 1rem;
   border-radius: 10px;
-  background: #d6eaf8;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: background 0.5s;
 }
 
-/* Colores personalizados por clase */
+/* Colores distintos por semestre */
 .semestre-1  { background: #d6eaf8; }
 .semestre-2  { background: #aed6f1; }
 .semestre-3  { background: #85c1e9; }
@@ -205,27 +93,27 @@ h2 {
   font-weight: 500;
 }
 
-/* Materia aprobada */
+/* Materias aprobadas */
 .materia.tachada {
   background-color: #1b4f72;
   color: white;
   text-decoration: line-through;
 }
 
-/* Materia bloqueada */
+/* Materias bloqueadas */
 .materia.bloqueada {
   background-color: #ebf5fb;
   color: #7f8c8d;
   cursor: not-allowed;
 }
 
-/* Hover para materias desbloqueadas */
+/* Hover en materias desbloqueadas */
 .materia:not(.bloqueada):hover {
   background-color: #aed6f1;
   transform: scale(1.03);
 }
 
-/* Botón de reinicio */
+/* Botón para reiniciar progreso */
 .reset-btn {
   background-color: #154360;
   color: white;
@@ -240,7 +128,7 @@ h2 {
   cursor: pointer;
 }
 
-/* Estilo del modal de información */
+/* Información detallada de una materia aprobada (opcional si se usa modal o sección emergente) */
 .modal-info {
   background-color: white;
   border: 1px solid #ccc;
