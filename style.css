@@ -1,75 +1,70 @@
 body {
-  font-family: "Times New Roman", serif;
-  background-color: #f9f9f9;
+  font-family: 'Times New Roman', serif;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  color: #123456;
   text-align: center;
 }
 
-h1, h2 {
-  font-family: Georgia, serif;
-  font-style: italic;
+button {
+  margin: 20px;
+  padding: 10px 15px;
 }
 
-#contenedor-semestres {
+.fila-superior, .fila-inferior {
   display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
 }
 
 .semestre {
-  padding: 15px;
+  border: 1px solid #ccc;
   border-radius: 10px;
-  min-width: 220px;
-  background-color: #d1e8f9;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  padding: 10px;
+  width: 200px;
+  min-height: 150px;
+  background-color: #fff;
 }
 
-.semestre h3 {
-  font-family: Georgia, serif;
-  font-style: italic;
+ul {
+  list-style: none;
+  padding: 0;
 }
 
-.materia {
-  background-color: white;
-  padding: 8px;
-  margin: 5px;
-  border-radius: 5px;
+li {
   cursor: pointer;
-  text-align: left;
+  margin: 5px 0;
 }
 
-.materia.aprobada {
+.aprobada {
   text-decoration: line-through;
-  background-color: #b8e6b5;
+  color: green;
 }
 
-.materia.bloqueada {
-  background-color: #e0e0e0;
-  color: gray;
-  pointer-events: none;
-}
-
-#tablaResumenContainer {
-  margin-top: 30px;
-}
+.semestre-1 { background-color: #e6f7ff; }
+.semestre-2 { background-color: #f9f0ff; }
+.semestre-3 { background-color: #fff0f6; }
+.semestre-4 { background-color: #f0fff0; }
+.semestre-5 { background-color: #ffffcc; }
+.semestre-6 { background-color: #f0f0ff; }
+.semestre-7 { background-color: #fff5e6; }
+.semestre-8 { background-color: #e6ffe6; }
+.semestre-9 { background-color: #f9e6ff; }
 
 table {
-  margin: auto;
+  width: 100%;
   border-collapse: collapse;
+  margin-top: 20px;
 }
 
 th, td {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: center;
 }
-
-.semestre-1 { background-color: #cce5ff; }
-.semestre-2 { background-color: #b3d7ff; }
-.semestre-3 { background-color: #99c9ff; }
-.semestre-4 { background-color: #80bbff; }
-.semestre-5 { background-color: #66adff; }
-.semestre-6 { background-color: #4c9fff; }
-.semestre-7 { background-color: #338fff; }
-.semestre-8 { background-color: #1a80ff; }
-.semestre-9 { background-color: #0066cc; color: white; }
