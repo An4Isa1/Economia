@@ -1,162 +1,157 @@
-const materiasPorSemestre = [
-  [
-    { nombre: "Economía I (Introducción a la Economía)", requisitos: [] },
-    { nombre: "Historia Económica General", requisitos: [] },
-    { nombre: "Matemáticas I", requisitos: [] },
-    { nombre: "Expresión Oral y Escrita", requisitos: [] },
-    { nombre: "Metodología de la Investigación", requisitos: [] },
-    { nombre: "Cátedra Neogranadina", requisitos: [] },
-    { nombre: "Principios Constitucionales", requisitos: [] }
+const materias = {
+  "Semestre 1": [
+    { nombre: "Matemáticas I" },
+    { nombre: "Introducción a la Economía" },
+    { nombre: "Historia Económica" },
+    { nombre: "Contabilidad General" },
+    { nombre: "Expresión Oral y Escrita" }
   ],
-  [
-    { nombre: "Microeconomía I", requisitos: ["Economía I (Introducción a la Economía)"] },
-    { nombre: "Historia Económica Colombiana", requisitos: ["Historia Económica General"] },
+  "Semestre 2": [
     { nombre: "Matemáticas II", requisitos: ["Matemáticas I"] },
-    { nombre: "Estadística I", requisitos: [] },
-    { nombre: "Álgebra lineal", requisitos: [] },
-    { nombre: "Humanidades I", requisitos: [] },
-    { nombre: "Extensión Cultural y Deportiva", requisitos: [] }
+    { nombre: "Microeconomía I", requisitos: ["Introducción a la Economía"] },
+    { nombre: "Estadística I", requisitos: ["Matemáticas I"] },
+    { nombre: "Contabilidad de Costos", requisitos: ["Contabilidad General"] },
+    { nombre: "Filosofía" }
   ],
-  [
-    { nombre: "Microeconomía II", requisitos: ["Microeconomía I"] },
-    { nombre: "Macroeconomía I", requisitos: ["Microeconomía I"] },
+  "Semestre 3": [
     { nombre: "Matemáticas III", requisitos: ["Matemáticas II"] },
+    { nombre: "Microeconomía II", requisitos: ["Microeconomía I"] },
     { nombre: "Estadística II", requisitos: ["Estadística I"] },
-    { nombre: "Medición Económica", requisitos: ["Microeconomía I"] }
+    { nombre: "Pensamiento Económico", requisitos: ["Historia Económica"] },
+    { nombre: "Informática Aplicada" }
   ],
-  [
-    { nombre: "Microeconomía III", requisitos: ["Microeconomía II"] },
+  "Semestre 4": [
+    { nombre: "Cálculo Multivariable", requisitos: ["Matemáticas III"] },
+    { nombre: "Macroeconomía I", requisitos: ["Microeconomía II"] },
+    { nombre: "Econometría I", requisitos: ["Estadística II"] },
+    { nombre: "Fundamentos de Administración" },
+    { nombre: "Derecho Económico" }
+  ],
+  "Semestre 5": [
     { nombre: "Macroeconomía II", requisitos: ["Macroeconomía I"] },
-    { nombre: "Economía Matemática", requisitos: ["Matemáticas III"] },
-    { nombre: "Estadística III", requisitos: ["Estadística II"] },
-    { nombre: "Contabilidad General", requisitos: [] }
-  ],
-  [
-    { nombre: "Macroeconomía III", requisitos: ["Microeconomía III", "Macroeconomía II", "Economía Matemática"] },
-    { nombre: "Doctrinas Económicas I", requisitos: [] },
-    { nombre: "Econometría I", requisitos: ["Estadística III"] },
-    { nombre: "Énfasis I", requisitos: [] },
-    { nombre: "Matemáticas Financieras", requisitos: ["Estadística III"] },
-    { nombre: "Contabilidad de Costos", requisitos: ["Contabilidad General"] }
-  ],
-  [
-    { nombre: "Crecimiento Económico", requisitos: ["Macroeconomía III"] },
-    { nombre: "Doctrinas Económicas II", requisitos: ["Doctrinas Económicas I"] },
     { nombre: "Econometría II", requisitos: ["Econometría I"] },
-    { nombre: "Énfasis II", requisitos: ["Énfasis I"] },
-    { nombre: "Teoría de la Decisión", requisitos: [] },
-    { nombre: "Análisis Financiero", requisitos: ["Contabilidad de Costos"] }
+    { nombre: "Internacional I" },
+    { nombre: "Finanzas" }
   ],
-  [
-    { nombre: "Teoría y Política Fiscal", requisitos: ["Crecimiento Económico"] },
-    { nombre: "Desarrollo Económico", requisitos: ["Crecimiento Económico"] },
-    { nombre: "Teoría y Política Monetaria y Cambiaria", requisitos: ["Macroeconomía III"] },
-    { nombre: "Énfasis III", requisitos: ["Énfasis II"] },
-    { nombre: "Formulación y Evaluación de Proyectos", requisitos: ["Econometría II"] },
-    { nombre: "Humanidades II", requisitos: [] }
+  "Semestre 6": [
+    { nombre: "Desarrollo Económico" },
+    { nombre: "Internacional II", requisitos: ["Internacional I"] },
+    { nombre: "Investigación II" },
+    { nombre: "Optativa I" }
   ],
-  [
-    { nombre: "Electiva I en lo Público", requisitos: [] },
-    { nombre: "Electiva I en lo Económico", requisitos: [] },
-    { nombre: "Economía Internacional", requisitos: ["Macroeconomía III"] },
-    { nombre: "Énfasis IV", requisitos: ["Énfasis III"] },
-    { nombre: "Evaluación Económica y Social de Proyectos", requisitos: ["Formulación y Evaluación de Proyectos"] },
-    { nombre: "Ética Profesional", requisitos: [] }
+  "Semestre 7": [
+    { nombre: "Economía del Sector Público" },
+    { nombre: "Optativa II" },
+    { nombre: "Electiva II" },
+    { nombre: "Seminario de Investigación" }
   ],
-  [
-    { nombre: "Electiva II en lo Público", requisitos: [] },
-    { nombre: "Electiva II en lo Económico", requisitos: [] },
-    { nombre: "Electiva en lo Internacional", requisitos: [] },
-    { nombre: "Electiva de Énfasis", requisitos: ["Estadística I"] },
-    { nombre: "Seminario de Grado", requisitos: ["Evaluación Económica y Social de Proyectos"] }
+  "Semestre 8": [
+    { nombre: "Optativa III" },
+    { nombre: "Electiva III" },
+    { nombre: "Práctica Profesional" },
+    { nombre: "Proyecto II" }
+  ],
+  "Semestre 9": [
+    { nombre: "Trabajo de Grado" },
+    { nombre: "Optativa IV" },
+    { nombre: "Electiva IV" },
+    { nombre: "Seminario Económico" }
   ]
-];
+};
 
-let estadoMaterias = JSON.parse(localStorage.getItem("estadoMaterias")) || {};
+let progreso = JSON.parse(localStorage.getItem("progreso")) || {};
 
-function guardar() {
-  localStorage.setItem("estadoMaterias", JSON.stringify(estadoMaterias));
-}
+function crearPensum() {
+  const contenedor = document.getElementById("contenedor-semestres");
+  contenedor.innerHTML = "";
+  Object.entries(materias).forEach(([semestre, lista], i) => {
+    const div = document.createElement("div");
+    div.className = `semestre semestre-${i + 1}`;
+    const titulo = document.createElement("h3");
+    titulo.textContent = semestre;
+    div.appendChild(titulo);
 
-function reiniciar() {
-  if (confirm("¿Seguro que deseas reiniciar todo el pensum?")) {
-    estadoMaterias = {};
-    guardar();
-    renderPensum();
-  }
+    lista.forEach(materia => {
+      const divMateria = document.createElement("div");
+      divMateria.textContent = materia.nombre;
+      divMateria.className = "materia";
+      if (!estaDesbloqueada(materia)) {
+        divMateria.classList.add("bloqueada");
+      } else if (progreso[materia.nombre]) {
+        divMateria.classList.add("aprobada");
+      }
+
+      divMateria.onclick = () => {
+        if (!estaDesbloqueada(materia)) {
+          alert("Materia bloqueada. Requiere: " + materia.requisitos.join(", "));
+          return;
+        }
+        if (!progreso[materia.nombre]) {
+          const n1 = parseFloat(prompt("Nota corte 1 (0-5):"));
+          const n2 = parseFloat(prompt("Nota corte 2 (0-5):"));
+          const n3 = parseFloat(prompt("Nota corte 3 (0-5):"));
+          const profesor = prompt("Nombre del profesor:");
+          const promedio = ((n1 + n2 + n3) / 3).toFixed(2);
+
+          progreso[materia.nombre] = {
+            notas: [n1, n2, n3],
+            promedio,
+            profesor
+          };
+          guardarProgreso();
+          crearPensum();
+          actualizarTabla();
+        }
+      };
+      div.appendChild(divMateria);
+    });
+
+    contenedor.appendChild(div);
+  });
 }
 
 function estaDesbloqueada(materia) {
-  return materia.requisitos.every(req => estadoMaterias[req]?.aprobada);
+  if (!materia.requisitos) return true;
+  return materia.requisitos.every(req => progreso[req]);
 }
 
-function mostrarFormulario(materia) {
-  const profesor = prompt("Nombre del profesor:");
-  const corte1 = parseFloat(prompt("Nota corte 1 (0-5):"));
-  const corte2 = parseFloat(prompt("Nota corte 2 (0-5):"));
-  const corte3 = parseFloat(prompt("Nota corte 3 (0-5):"));
+function guardarProgreso() {
+  localStorage.setItem("progreso", JSON.stringify(progreso));
+}
 
-  if ([corte1, corte2, corte3].some(n => isNaN(n) || n < 0 || n > 5)) {
-    alert("Debes ingresar notas válidas entre 0 y 5.");
-    return;
+function reiniciarProgreso() {
+  if (confirm("¿Seguro que deseas borrar todo el progreso?")) {
+    progreso = {};
+    guardarProgreso();
+    crearPensum();
+    actualizarTabla();
   }
-
-  const definitiva = parseFloat(((corte1 + corte2 + corte3) / 3).toFixed(2));
-
-  estadoMaterias[materia.nombre] = {
-    profesor,
-    notas: [corte1, corte2, corte3],
-    definitiva,
-    aprobada: definitiva >= 3.0
-  };
-
-  guardar();
-  renderPensum();
 }
 
-function renderPensum() {
-  const pensumDiv = document.getElementById("pensum");
-  pensumDiv.innerHTML = "";
+function actualizarTabla() {
+  const cuerpo = document.querySelector("#tablaResumen tbody");
+  cuerpo.innerHTML = "";
 
-  const fila1 = document.createElement("div");
-  fila1.className = "fila";
-  const fila2 = document.createElement("div");
-  fila2.className = "fila";
+  Object.entries(progreso).forEach(([nombre, datos]) => {
+    const fila = document.createElement("tr");
+    const semestre = encontrarSemestre(nombre);
 
-  materiasPorSemestre.forEach((semestre, i) => {
-    const columna = document.createElement("div");
-    columna.className = `semestre semestre-${i + 1}`;
-    columna.innerHTML = `<h3>Semestre ${i + 1}</h3>`;
-
-    semestre.forEach(materia => {
-      const info = estadoMaterias[materia.nombre];
-      const item = document.createElement("div");
-      item.className = "materia";
-      item.innerHTML = `<strong>${materia.nombre}</strong>`;
-
-      if (info?.aprobada) {
-        item.classList.add("aprobada");
-        item.innerHTML += `
-          <br><small>Prof: ${info.profesor}</small>
-          <br><small>Notas: ${info.notas.join(", ")}</small>
-          <br><small>Def: ${info.definitiva}</small>
-        `;
-      } else if (!estaDesbloqueada(materia)) {
-        item.classList.add("bloqueada");
-      } else {
-        item.classList.add("desbloqueada");
-        item.onclick = () => mostrarFormulario(materia);
-      }
-
-      columna.appendChild(item);
-    });
-
-    if (i < 4) fila1.appendChild(columna);
-    else fila2.appendChild(columna);
+    fila.innerHTML = `
+      <td>${semestre}</td>
+      <td>${nombre}</td>
+      <td>${datos.promedio}</td>
+      <td>${datos.profesor}</td>
+    `;
+    cuerpo.appendChild(fila);
   });
-
-  pensumDiv.appendChild(fila1);
-  pensumDiv.appendChild(fila2);
 }
 
-renderPensum();
+function encontrarSemestre(materiaNombre) {
+  return Object.keys(materias).find(sem =>
+    materias[sem].some(m => m.nombre === materiaNombre)
+  );
+}
+
+// Inicialización
+crearPensum();
+actualizarTabla();
