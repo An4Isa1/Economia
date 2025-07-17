@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Pensum Economía</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pensum Economía - UMNG</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1><em>Pensum Economía</em></h1>
   <h2><em>UMNG</em></h2>
   <button onclick="reiniciarProgreso()">Reiniciar progreso</button>
 
-  <div id="contenedor-semestres"></div>
+  <div class="fila-superior" id="fila-superior"></div>
+  <div class="fila-inferior" id="fila-inferior"></div>
 
-  <div id="tablaResumenContainer">
+  <div class="resumen">
     <h3>Resumen por semestre</h3>
     <table id="tablaResumen">
       <thead>
@@ -26,127 +28,6 @@
       <tbody></tbody>
     </table>
   </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Pensum Economía</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1><em>Pensum Economía</em></h1>
-  <h2><em>UMNG</em></h2>
-
-  <button onclick="reiniciarProgreso()">Reiniciar progreso</button>
-
-  <div class="fila-superior">
-    <div class="semestre semestre-1" data-semestre="1">
-      <h3>Semestre 1</h3>
-      <ul>
-        <li data-materia="Matemáticas I">Matemáticas I</li>
-        <li data-materia="Introducción a la Economía">Introducción a la Economía</li>
-        <li data-materia="Contabilidad General">Contabilidad General</li>
-        <li data-materia="Historia Económica General">Historia Económica General</li>
-        <li data-materia="Cátedra Rafael Núñez">Cátedra Rafael Núñez</li>
-      </ul>
-    </div>
-    <div class="semestre semestre-2" data-semestre="2">
-      <h3>Semestre 2</h3>
-      <ul>
-        <li data-materia="Matemáticas II">Matemáticas II</li>
-        <li data-materia="Microeconomía I">Microeconomía I</li>
-        <li data-materia="Contabilidad Nacional">Contabilidad Nacional</li>
-        <li data-materia="Estadística I">Estadística I</li>
-        <li data-materia="Historia Económica de Colombia">Historia Económica de Colombia</li>
-      </ul>
-    </div>
-    <div class="semestre semestre-3" data-semestre="3">
-      <h3>Semestre 3</h3>
-      <ul>
-        <li data-materia="Matemáticas III">Matemáticas III</li>
-        <li data-materia="Microeconomía II">Microeconomía II</li>
-        <li data-materia="Macroeconomía I">Macroeconomía I</li>
-        <li data-materia="Estadística II">Estadística II</li>
-        <li data-materia="Contabilidad de Costos">Contabilidad de Costos</li>
-      </ul>
-    </div>
-    <div class="semestre semestre-4" data-semestre="4">
-      <h3>Semestre 4</h3>
-      <ul>
-        <li data-materia="Cálculo Diferencial">Cálculo Diferencial</li>
-        <li data-materia="Macroeconomía II">Macroeconomía II</li>
-        <li data-materia="Econometría I">Econometría I</li>
-        <li data-materia="Economía del Sector Público">Economía del Sector Público</li>
-        <li data-materia="Teoría Monetaria y Bancaria">Teoría Monetaria y Bancaria</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="fila-inferior">
-    <div class="semestre semestre-5" data-semestre="5">
-      <h3>Semestre 5</h3>
-      <ul>
-        <li data-materia="Econometría II">Econometría II</li>
-        <li data-materia="Desarrollo Económico">Desarrollo Económico</li>
-        <li data-materia="Formulación y Evaluación de Proyectos">Formulación y Evaluación de Proyectos</li>
-        <li data-materia="Economía Internacional">Economía Internacional</li>
-        <li data-materia="Electiva I">Electiva I</li>
-      </ul>
-    </div>
-    <div class="semestre semestre-6" data-semestre="6">
-      <h3>Semestre 6</h3>
-      <ul>
-        <li data-materia="Investigación I">Investigación I</li>
-        <li data-materia="Modelos de Optimización Económica">Modelos de Optimización Económica</li>
-        <li data-materia="Economía Colombiana">Economía Colombiana</li>
-        <li data-materia="Electiva II">Electiva II</li>
-        <li data-materia="Electiva III">Electiva III</li>
-      </ul>
-    </div>
-    <div class="semestre semestre-7" data-semestre="7">
-      <h3>Semestre 7</h3>
-      <ul>
-        <li data-materia="Investigación II">Investigación II</li>
-        <li data-materia="Economía Ambiental">Economía Ambiental</li>
-        <li data-materia="Economía Laboral">Economía Laboral</li>
-        <li data-materia="Seminario de Grado I">Seminario de Grado I</li>
-        <li data-materia="Electiva IV">Electiva IV</li>
-      </ul>
-    </div>
-    <div class="semestre semestre-8" data-semestre="8">
-      <h3>Semestre 8</h3>
-      <ul>
-        <li data-materia="Seminario de Grado II">Seminario de Grado II</li>
-        <li data-materia="Práctica Profesional">Práctica Profesional</li>
-        <li data-materia="Electiva V">Electiva V</li>
-        <li data-materia="Electiva VI">Electiva VI</li>
-        <li data-materia="Electiva VII">Electiva VII</li>
-      </ul>
-    </div>
-    <div class="semestre semestre-9" data-semestre="9">
-      <h3>Semestre 9</h3>
-      <ul>
-        <li data-materia="Trabajo de Grado">Trabajo de Grado</li>
-      </ul>
-    </div>
-  </div>
-
-  <h3>Resumen por semestre</h3>
-  <table id="resumen">
-    <thead>
-      <tr>
-        <th>Semestre</th>
-        <th>Materia</th>
-        <th>Promedio</th>
-        <th>Profesor</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
 
   <script src="script.js"></script>
 </body>
