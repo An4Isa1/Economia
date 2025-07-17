@@ -2,25 +2,125 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pensum Economía</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1 class="titulo">*Pensum Economía*</h1>
-    <h2 class="subtitulo">UMNG</h2>
-    <button onclick="reiniciarProgreso()">Reiniciar progreso</button>
-  </header>
+  <h1><em>Pensum Economía</em></h1>
+  <h2><em>UMNG</em></h2>
+  <button onclick="reiniciarProgreso()">Reiniciar progreso</button>
 
-  <main>
-    <div class="fila-superior">
-      <!-- Aquí se agregan los semestres 1 a 4 -->
+  <div class="container">
+    <div class="fila fila-superior">
+      <div class="semestre semestre-1">
+        <h3><em>Semestre 1</em></h3>
+        <ul>
+          <li class="materia" data-id="mat1">Matemáticas I</li>
+          <li class="materia" data-id="eco1">Introducción a la Economía</li>
+          <li class="materia" data-id="his1">Historia Económica</li>
+          <li class="materia" data-id="con1">Contabilidad General</li>
+          <li class="materia" data-id="exp1">Expresión Oral y Escrita</li>
+        </ul>
+      </div>
+
+      <div class="semestre semestre-2">
+        <h3><em>Semestre 2</em></h3>
+        <ul>
+          <li class="materia" data-id="mat2" data-requiere="mat1">Matemáticas II</li>
+          <li class="materia" data-id="eco2" data-requiere="eco1">Microeconomía I</li>
+          <li class="materia" data-id="est1">Estadística I</li>
+          <li class="materia" data-id="con2" data-requiere="con1">Contabilidad de Costos</li>
+          <li class="materia" data-id="fil1">Filosofía</li>
+        </ul>
+      </div>
+
+      <div class="semestre semestre-3">
+        <h3><em>Semestre 3</em></h3>
+        <ul>
+          <li class="materia" data-id="mat3" data-requiere="mat2">Matemáticas III</li>
+          <li class="materia" data-id="eco3" data-requiere="eco2">Microeconomía II</li>
+          <li class="materia" data-id="est2" data-requiere="est1">Estadística II</li>
+          <li class="materia" data-id="his2" data-requiere="his1">Pensamiento Económico</li>
+          <li class="materia" data-id="inf1">Informática Aplicada</li>
+        </ul>
+      </div>
+
+      <div class="semestre semestre-4">
+        <h3><em>Semestre 4</em></h3>
+        <ul>
+          <li class="materia" data-id="mat4" data-requiere="mat3">Cálculo Multivariable</li>
+          <li class="materia" data-id="eco4" data-requiere="eco3">Macroeconomía I</li>
+          <li class="materia" data-id="est3" data-requiere="est2">Econometría I</li>
+          <li class="materia" data-id="adm1">Fundamentos de Administración</li>
+          <li class="materia" data-id="der1">Derecho Económico</li>
+        </ul>
+      </div>
     </div>
-    <div class="fila-inferior">
-      <!-- Aquí se agregan los semestres 5 a 9 -->
+
+    <div class="fila fila-inferior">
+      <div class="semestre semestre-5">
+        <h3><em>Semestre 5</em></h3>
+        <ul>
+          <li class="materia" data-id="eco5" data-requiere="eco4">Macroeconomía II</li>
+          <li class="materia" data-id="est4" data-requiere="est3">Econometría II</li>
+          <li class="materia" data-id="int1">Internacional I</li>
+          <li class="materia" data-id="fin1">Finanzas</li>
+          <li class="materia" data-id="inv1">Investigación I</li>
+        </ul>
+      </div>
+
+      <div class="semestre semestre-6">
+        <h3><em>Semestre 6</em></h3>
+        <ul>
+          <li class="materia" data-id="eco6">Desarrollo Económico</li>
+          <li class="materia" data-id="int2" data-requiere="int1">Internacional II</li>
+          <li class="materia" data-id="inv2" data-requiere="inv1">Investigación II</li>
+          <li class="materia" data-id="opt1">Optativa I</li>
+          <li class="materia" data-id="ele1">Electiva I</li>
+        </ul>
+      </div>
+
+      <div class="semestre semestre-7">
+        <h3><em>Semestre 7</em></h3>
+        <ul>
+          <li class="materia" data-id="eco7">Economía del Sector Público</li>
+          <li class="materia" data-id="opt2">Optativa II</li>
+          <li class="materia" data-id="ele2">Electiva II</li>
+          <li class="materia" data-id="inv3" data-requiere="inv2">Seminario de Investigación</li>
+          <li class="materia" data-id="proy1">Proyecto I</li>
+        </ul>
+      </div>
+
+      <div class="semestre semestre-8">
+        <h3><em>Semestre 8</em></h3>
+        <ul>
+          <li class="materia" data-id="opt3">Optativa III</li>
+          <li class="materia" data-id="ele3">Electiva III</li>
+          <li class="materia" data-id="pra1">Práctica Profesional</li>
+          <li class="materia" data-id="proy2" data-requiere="proy1">Proyecto II</li>
+          <li class="materia" data-id="soc1">Responsabilidad Social</li>
+        </ul>
+      </div>
+
+      <div class="semestre semestre-9">
+        <h3><em>Semestre 9</em></h3>
+        <ul>
+          <li class="materia" data-id="trab1" data-requiere="proy2">Trabajo de Grado</li>
+          <li class="materia" data-id="opt4">Optativa IV</li>
+          <li class="materia" data-id="ele4">Electiva IV</li>
+          <li class="materia" data-id="eco8">Seminario Económico</li>
+          <li class="materia" data-id="inv4">Investigación Final</li>
+        </ul>
+      </div>
     </div>
-  </main>
+  </div>
+
+  <div class="resumen">
+    <h3><em>Resumen Académico</em></h3>
+    <div id="tablaResumen"></div>
+    <div id="promedioFinal"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
