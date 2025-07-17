@@ -59,173 +59,91 @@ const materias = {
   ]
 };
 
-let progreso = JSON.parse(localStorage.getItem("progreso")) || {};
+function crearMateria(materia, semestre, container) {
+  const div = document.createElement("div");
+  div.className = "materia";
+  div.textContent = materia.nombre;
+  div.onclick = () => manejarClickMateria(materia, div, semestre);
+  container.appendChild(div);
+}
 
-function crearPensum() {
-  const contenedor = document.getElementById("contenedor-semestres");
-  contenedor.innerHTML = "";
-  Object.entries(materias).forEach(([semestre, lista], i) => {
+function manejarClickMateria(materia, div, semestre) {
+  if (materia.requisitos && !materia.requisitos.every(req => materiaAprobada(req))) {
+    alert(`Debes aprobar: ${materia.requisitos.join(", ")}`);
+    return;
+  }
+
+  const notas = [];
+  for (let i = 1; i <= 3; i++) {
+    const nota = parseFloat(prompt(`Ingrese nota del corte ${i} para ${materia.nombre}:`));
+    if (isNaN(nota) || nota < 0 || nota > 5) return alert("Nota inválida");
+    notas.push(nota);
+  }
+
+  const promedio = (notas.reduce((a, b) => a + b, 0) / 3).toFixed(2);
+  const profesor = prompt("Ingrese el nombre del profesor:");
+
+  const data = { promedio, profesor };
+  localStorage.setItem(materia.nombre, JSON.stringify(data));
+
+  div.classList.add("aprobada");
+  agregarResumen(semestre, materia.nombre, promedio, profesor);
+}
+
+function agregarResumen(semestre, materia, promedio, profesor) {
+  const tabla = document.querySelector("#resumen tbody");
+  const fila = document.createElement("tr");
+
+  [semestre, materia, promedio, profesor].forEach(valor => {
+    const celda = document.createElement("td");
+    celda.textContent = valor;
+    fila.appendChild(celda);
+  });
+
+  tabla.appendChild(fila);
+}
+
+function materiaAprobada(nombre) {
+  return !!localStorage.getItem(nombre);
+}
+
+function cargarMaterias() {
+  for (let i = 1; i <= 9; i++) {
     const div = document.createElement("div");
-    div.className = `semestre semestre-${i + 1}`;
-    const titulo = document.createElement("h3");
-    titulo.textContent = semestre;
+    div.className = `semestre semestre-${i}`;
+    const titulo = document.createElement("h4");
+    titulo.innerHTML = `<em>Semestre ${i}</em>`;
     div.appendChild(titulo);
 
-    lista.forEach(materia => {
-      const divMateria = document.createElement("div");
-      divMateria.textContent = materia.nombre;
-      divMateria.className = "materia";
-      if (!estaDesbloqueada(materia)) {
-        divMateria.classList.add("bloqueada");
-      } else if (progreso[materia.nombre]) {
-        divMateria.classList.add("aprobada");
-      }
+    (materias[i] || []).forEach(m => crearMateria(m, i, div));
 
-      divMateria.onclick = () => {
-        if (!estaDesbloqueada(materia)) {
-          alert("Materia bloqueada. Requiere: " + materia.requisitos.join(", "));
-          return;
-        }
-        if (!progreso[materia.nombre]) {
-          const n1 = parseFloat(prompt("Nota corte 1 (0-5):"));
-          const n2 = parseFloat(prompt("Nota corte 2 (0-5):"));
-          const n3 = parseFloat(prompt("Nota corte 3 (0-5):"));
-          const profesor = prompt("Nombre del profesor:");
-          const promedio = ((n1 + n2 + n3) / 3).toFixed(2);
-
-          progreso[materia.nombre] = {
-            notas: [n1, n2, n3],
-            promedio,
-            profesor
-          };
-          guardarProgreso();
-          crearPensum();
-          actualizarTabla();
-        }
-      };
-      div.appendChild(divMateria);
-    });
-
-    contenedor.appendChild(div);
-  });
-}
-
-function estaDesbloqueada(materia) {
-  if (!materia.requisitos) return true;
-  return materia.requisitos.every(req => progreso[req]);
-}
-
-function guardarProgreso() {
-  localStorage.setItem("progreso", JSON.stringify(progreso));
-}
-
-function reiniciarProgreso() {
-  if (confirm("¿Seguro que deseas borrar todo el progreso?")) {
-    progreso = {};
-    guardarProgreso();
-    crearPensum();
-    actualizarTabla();
+    if (i <= 4) {
+      document.getElementById("semestres-superior").appendChild(div);
+    } else {
+      document.getElementById("semestres-inferior").appendChild(div);
+    }
   }
 }
 
-function actualizarTabla() {
-  const cuerpo = document.querySelector("#tablaResumen tbody");
-  cuerpo.innerHTML = "";
-
-  Object.entries(progreso).forEach(([nombre, datos]) => {
-    const fila = document.createElement("tr");
-    const semestre = encontrarSemestre(nombre);
-
-    fila.innerHTML = `
-      <td>${semestre}</td>
-      <td>${nombre}</td>
-      <td>${datos.promedio}</td>
-      <td>${datos.profesor}</td>
-    `;
-    cuerpo.appendChild(fila);
-  });
-}
-
-function encontrarSemestre(materiaNombre) {
-  return Object.keys(materias).find(sem =>
-    materias[sem].some(m => m.nombre === materiaNombre)
-  );
-}
-
-// Inicialización
-crearPensum();
-actualizarTabla();
-document.addEventListener('DOMContentLoaded', () => {
-  const materias = document.querySelectorAll('li');
-  materias.forEach(materia => {
-    const estado = localStorage.getItem(materia.textContent);
-    if (estado) {
-      const data = JSON.parse(estado);
-      if (data.aprobada) {
-        materia.classList.add('aprobada');
-      }
-    }
-
-    materia.addEventListener('click', () => {
-      if (materia.classList.contains('aprobada')) return;
-
-      const notas = [
-        parseFloat(prompt(`Nota 1 de ${materia.textContent}`)),
-        parseFloat(prompt(`Nota 2 de ${materia.textContent}`)),
-        parseFloat(prompt(`Nota 3 de ${materia.textContent}`))
-      ];
-
-      if (notas.some(isNaN)) {
-        alert("Por favor, ingresa notas válidas.");
-        return;
-      }
-
-      const promedio = (notas[0] + notas[1] + notas[2]) / 3;
-      const profesor = prompt("Nombre del profesor:");
-
-      const data = {
-        notas,
-        promedio,
-        profesor,
-        aprobada: true
-      };
-
-      localStorage.setItem(materia.textContent, JSON.stringify(data));
-      materia.classList.add('aprobada');
-      agregarResumen(materia, promedio, profesor);
-    });
-  });
-
-  cargarResumen();
-});
-
-function agregarResumen(materia, promedio, profesor) {
-  const fila = document.createElement('tr');
-  const semestre = materia.closest('.semestre').dataset.semestre;
-  fila.innerHTML = `
-    <td>${semestre}</td>
-    <td>${materia.textContent}</td>
-    <td>${promedio.toFixed(2)}</td>
-    <td>${profesor}</td>
-  `;
-  document.querySelector('#resumen tbody').appendChild(fila);
-}
-
 function cargarResumen() {
-  const tbody = document.querySelector('#resumen tbody');
-  tbody.innerHTML = '';
-  document.querySelectorAll('li').forEach(materia => {
-    const estado = localStorage.getItem(materia.textContent);
-    if (estado) {
-      const data = JSON.parse(estado);
-      if (data.aprobada) {
-        agregarResumen(materia, data.promedio, data.profesor);
+  for (let nombre in localStorage) {
+    const data = JSON.parse(localStorage.getItem(nombre));
+    for (let i = 1; i <= 9; i++) {
+      if (materias[i]?.some(m => m.nombre === nombre)) {
+        agregarResumen(i, nombre, data.promedio, data.profesor);
       }
     }
-  });
+  }
 }
 
 function reiniciarProgreso() {
-  localStorage.clear();
-  location.reload();
+  if (confirm("¿Seguro que quieres reiniciar todo tu progreso?")) {
+    localStorage.clear();
+    location.reload();
+  }
 }
+
+window.onload = () => {
+  cargarMaterias();
+  cargarResumen();
+};
