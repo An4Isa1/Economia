@@ -7,16 +7,28 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Pensum Economía</h1>
-    <h2>UMNG</h2>
-    <button onclick="reiniciar()">Reiniciar progreso</button>
-  </header>
+  <h1><em>Pensum Economía</em></h1>
+  <h2>UMNG</h2>
 
-  <main>
-    <div class="fila" id="fila-superior"></div>
-    <div class="fila" id="fila-inferior"></div>
-  </main>
+  <div class="boton-reiniciar">
+    <button onclick="reiniciarProgreso()">Reiniciar progreso</button>
+  </div>
+
+  <div id="semestres-container">
+    <div class="fila-superior">
+      <div class="semestre semestre-1"><h3>Semestre 1</h3><div class="contenedor-materias" id="semestre-1"></div></div>
+      <div class="semestre semestre-2"><h3>Semestre 2</h3><div class="contenedor-materias" id="semestre-2"></div></div>
+      <div class="semestre semestre-3"><h3>Semestre 3</h3><div class="contenedor-materias" id="semestre-3"></div></div>
+      <div class="semestre semestre-4"><h3>Semestre 4</h3><div class="contenedor-materias" id="semestre-4"></div></div>
+    </div>
+    <div class="fila-inferior">
+      <div class="semestre semestre-5"><h3>Semestre 5</h3><div class="contenedor-materias" id="semestre-5"></div></div>
+      <div class="semestre semestre-6"><h3>Semestre 6</h3><div class="contenedor-materias" id="semestre-6"></div></div>
+      <div class="semestre semestre-7"><h3>Semestre 7</h3><div class="contenedor-materias" id="semestre-7"></div></div>
+      <div class="semestre semestre-8"><h3>Semestre 8</h3><div class="contenedor-materias" id="semestre-8"></div></div>
+      <div class="semestre semestre-9"><h3>Semestre 9</h3><div class="contenedor-materias" id="semestre-9"></div></div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
