@@ -2,15 +2,21 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pensum Economía</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Pensum Interactivo - Economía</h1>
-    <button onclick="resetearProgreso()" class="reset-btn">Resetear progreso</button>
-    <div id="pensum"></div>
+    <h1>Pensum Economía</h1>
+    <h2>UMNG</h2>
+    <button class="reset-btn" onclick="reiniciar()">Reiniciar Pensum</button>
+    
+    <!-- Contenedor para semestres 1 a 4 -->
+    <div id="superior" class="fila-pensum"></div>
+
+    <!-- Contenedor para semestres 5 a 9 -->
+    <div id="inferior" class="fila-pensum"></div>
   </div>
 
   <script src="script.js"></script>
