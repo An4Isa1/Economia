@@ -1,10 +1,12 @@
 const materiasPorSemestre = [
   [
-    { nombre: "Fundamentos de Economía", requisitos: [] },
-    { nombre: "Fundamentos de Administración", requisitos: [] },
+    { nombre: "Economía I(Introducción a la Economía)", requisitos: [] },
+    { nombre: "Historia Económica General", requisitos: [] },
     { nombre: "Matemáticas I", requisitos: [] },
-    { nombre: "Fundamentos de Contabilidad", requisitos: [] },
-    { nombre: "Cátedra Rafael Núñez", requisitos: [] }
+    { nombre: "Expresión Oral y Esctrita", requisitos: [] },
+    { nombre: "Metodología de la Investigación", requisitos: [] }
+    { nombre: "Cátedra Neogranadina", requisitos: [] },
+    { nombre: "Principios Constitucionales", requisitos: [] }
   ],
   [
     { nombre: "Microeconomía I", requisitos: ["Fundamentos de Economía"] },
