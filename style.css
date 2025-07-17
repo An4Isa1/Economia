@@ -68,3 +68,101 @@ th, td {
   border: 1px solid #999;
   padding: 5px 10px;
 }
+body {
+  font-family: "Times New Roman", serif;
+  background-color: #f9f9f9;
+  color: #000;
+  text-align: center;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: #123456;
+}
+
+.semestres {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 15px 0;
+  gap: 10px;
+}
+
+.semestre {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  width: 250px;
+}
+
+.materia {
+  background-color: #fff;
+  margin: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s;
+}
+
+.materia:hover {
+  background-color: #f0f0f0;
+}
+
+.materia.aprobada {
+  text-decoration: line-through;
+  background-color: #d4edda;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-contenido {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  max-width: 400px;
+  width: 90%;
+}
+
+button {
+  font-family: "Times New Roman", serif;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* Colores para cada semestre */
+.semestre-1 { background-color: #E3F2FD; }
+.semestre-2 { background-color: #FFEBEE; }
+.semestre-3 { background-color: #E8F5E9; }
+.semestre-4 { background-color: #FFF3E0; }
+.semestre-5 { background-color: #EDE7F6; }
+.semestre-6 { background-color: #F3E5F5; }
+.semestre-7 { background-color: #FCE4EC; }
+.semestre-8 { background-color: #E0F7FA; }
+.semestre-9 { background-color: #FFFDE7; }
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 90%;
+}
+
+th, td {
+  border: 1px solid #000;
+  padding: 8px;
+  font-family: "Times New Roman", serif;
+}
