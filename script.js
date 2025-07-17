@@ -155,3 +155,77 @@ function encontrarSemestre(materiaNombre) {
 // Inicialización
 crearPensum();
 actualizarTabla();
+document.addEventListener('DOMContentLoaded', () => {
+  const materias = document.querySelectorAll('li');
+  materias.forEach(materia => {
+    const estado = localStorage.getItem(materia.textContent);
+    if (estado) {
+      const data = JSON.parse(estado);
+      if (data.aprobada) {
+        materia.classList.add('aprobada');
+      }
+    }
+
+    materia.addEventListener('click', () => {
+      if (materia.classList.contains('aprobada')) return;
+
+      const notas = [
+        parseFloat(prompt(`Nota 1 de ${materia.textContent}`)),
+        parseFloat(prompt(`Nota 2 de ${materia.textContent}`)),
+        parseFloat(prompt(`Nota 3 de ${materia.textContent}`))
+      ];
+
+      if (notas.some(isNaN)) {
+        alert("Por favor, ingresa notas válidas.");
+        return;
+      }
+
+      const promedio = (notas[0] + notas[1] + notas[2]) / 3;
+      const profesor = prompt("Nombre del profesor:");
+
+      const data = {
+        notas,
+        promedio,
+        profesor,
+        aprobada: true
+      };
+
+      localStorage.setItem(materia.textContent, JSON.stringify(data));
+      materia.classList.add('aprobada');
+      agregarResumen(materia, promedio, profesor);
+    });
+  });
+
+  cargarResumen();
+});
+
+function agregarResumen(materia, promedio, profesor) {
+  const fila = document.createElement('tr');
+  const semestre = materia.closest('.semestre').dataset.semestre;
+  fila.innerHTML = `
+    <td>${semestre}</td>
+    <td>${materia.textContent}</td>
+    <td>${promedio.toFixed(2)}</td>
+    <td>${profesor}</td>
+  `;
+  document.querySelector('#resumen tbody').appendChild(fila);
+}
+
+function cargarResumen() {
+  const tbody = document.querySelector('#resumen tbody');
+  tbody.innerHTML = '';
+  document.querySelectorAll('li').forEach(materia => {
+    const estado = localStorage.getItem(materia.textContent);
+    if (estado) {
+      const data = JSON.parse(estado);
+      if (data.aprobada) {
+        agregarResumen(materia, data.promedio, data.profesor);
+      }
+    }
+  });
+}
+
+function reiniciarProgreso() {
+  localStorage.clear();
+  location.reload();
+}
