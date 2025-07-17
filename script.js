@@ -3,8 +3,8 @@ const materiasPorSemestre = [
     { nombre: "Economía I (Introducción a la Economía)", requisitos: [] },
     { nombre: "Historia Económica General", requisitos: [] },
     { nombre: "Matemáticas I", requisitos: [] },
-    { nombre: "Expresión Oral y Esctrita", requisitos: [] },
-    { nombre: "Metodología de la Investigación", requisitos: [] }
+    { nombre: "Expresión Oral y Escrita", requisitos: [] },
+    { nombre: "Metodología de la Investigación", requisitos: [] },
     { nombre: "Cátedra Neogranadina", requisitos: [] },
     { nombre: "Principios Constitucionales", requisitos: [] }
   ],
@@ -13,8 +13,8 @@ const materiasPorSemestre = [
     { nombre: "Historia Económica Colombiana", requisitos: ["Historia Económica General"] },
     { nombre: "Matemáticas II", requisitos: ["Matemáticas I"] },
     { nombre: "Estadística I", requisitos: [] },
-    { nombre: "Algebra lineal", requisitos: [] }
-    { nombre: "Humanidades I", requisitos: [] }
+    { nombre: "Álgebra lineal", requisitos: [] },
+    { nombre: "Humanidades I", requisitos: [] },
     { nombre: "Extensión Cultural y Deportiva", requisitos: [] }
   ],
   [
@@ -23,46 +23,46 @@ const materiasPorSemestre = [
     { nombre: "Matemáticas III", requisitos: ["Matemáticas II"] },
     { nombre: "Estadística II", requisitos: ["Estadística I"] },
     { nombre: "Medición Económica", requisitos: ["Microeconomía I"] }
-  ]
+  ],
   [
     { nombre: "Microeconomía III", requisitos: ["Microeconomía II"] },
     { nombre: "Macroeconomía II", requisitos: ["Macroeconomía I"] },
     { nombre: "Economía Matemática", requisitos: ["Matemáticas III"] },
     { nombre: "Estadística III", requisitos: ["Estadística I"] },
     { nombre: "Contabilidad General", requisitos: [] }
-  ]
+  ],
   [
     { nombre: "Macroeconomía III", requisitos: ["Microeconomía III", "Macroeconomía II","Economía Matemática"] },
     { nombre: "Doctrinas Económicas I", requisitos: [] },
     { nombre: "Econometría I", requisitos: [] },
     { nombre: "Énfasis I", requisitos: [] },
-    { nombre: "Matemáticas Financieras", requisitos: ["Estadística III"] }
+    { nombre: "Matemáticas Financieras", requisitos: ["Estadística III"] },
     { nombre: "Contabilidad de Costos", requisitos: ["Contabilidad General"] }
-  ]
+  ],
   [
     { nombre: "Crecimiento Económico", requisitos: ["Macroeconomía III"] },
     { nombre: "Doctrinas Económicas II", requisitos: ["Doctrinas Económicas I"] },
     { nombre: "Econometría II", requisitos: [] },
     { nombre: "Énfasis II", requisitos: [] },
-    { nombre: "Teoría de la Decisión", requisitos: [] }                                               
+    { nombre: "Teoría de la Decisión", requisitos: [] },                                               
     { nombre: "Análisis Financiero", requisitos: ["Contabilidad de Costos"] }
-  ]
+  ],
   [
     { nombre: "Teoría y Política Fiscal", requisitos: ["Crecimiento Económico"] },
     { nombre: "Desarrollo Económico", requisitos: [] },
     { nombre: "Teoría y Política Monetaria y Cambiaria", requisitos: [] },
     { nombre: "Énfasis III", requisitos: [] },
-    { nombre: "Formulación y Evaluación de Proyectos", requisitos: [] }                                               
+    { nombre: "Formulación y Evaluación de Proyectos", requisitos: [] },                                               
     { nombre: "Humanidades II", requisitos: [] }
-  ]
+  ],
   [
     { nombre: "Electiva I en lo Público", requisitos: [] },
     { nombre: "Electiva I en lo Económico", requisitos: [] },
     { nombre: "Economía Internacional", requisitos: [] },
     { nombre: "Énfasis IV", requisitos: [] },
-    { nombre: "Evaluación Económica y Social de Proyectos", requisitos: [] }
+    { nombre: "Evaluación Económica y Social de Proyectos", requisitos: [] },
     { nombre: "Etica Profesional", requisitos: [] },
-  ]
+  ],
   [
     { nombre: "Electiva II en lo Público", requisitos: [] },
     { nombre: "Electiva II en lo Económico", requisitos: [] },
