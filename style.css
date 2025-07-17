@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+  background: #f9fbff;
+  margin: 0;
+  padding: 2rem;
+}
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+h1 {
+  text-align: center;
+  color: #0a2b59;
+}
+.semestre {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #e6ecf5;
+}
+.materia {
+  padding: 0.5rem;
+  margin: 0.3rem 0;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+}
+.materia.tachada {
+  text-decoration: line-through;
+  background: #bdf5bd;
+}
+.materia.bloqueada {
+  color: gray;
+  background: #ddd;
+  cursor: not-allowed;
+}
